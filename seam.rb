@@ -1,4 +1,5 @@
 require "language/node"
+require "json"
 
 class Seam < Formula
   desc "This utility lets you control Seam resources"
@@ -16,6 +17,6 @@ class Seam < Formula
   test do
     system "#{bin}/seam", "config", "set", "fake-server"
     output = pipe_output("#{bin}/seam health get_health")
-    assert_match 'I’m one with the Force. The Force is with me.', output
+    assert_match "I’m one with the Force. The Force is with me.", output
   end
 end
