@@ -4,8 +4,8 @@ require "json"
 class Seam < Formula
   desc "This utility lets you control Seam resources"
   homepage "https://github.com/seamapi/seam-cli"
-  url "https://registry.npmjs.org/seam-cli/-/seam-cli-0.0.38.tgz"
-  sha256 "fbf397e21c4f6f93db89465f11f819399ef5f76076060a7aa4585d28667129dc"
+  url "https://registry.npmjs.org/seam-cli/-/seam-cli-0.0.39.tgz"
+  sha256 "af448c0864801fe34466b2cb5c397a7774fcbfe3bbdae23bf046a1cd44fa4e09"
   license "MIT"
 
   depends_on "node"
@@ -16,5 +16,7 @@ class Seam < Formula
   end
   test do
     system "#{bin}/seam", "config", "set", "fake-server"
-  end  
+    output = pipe_output("#{bin}/seam health get_health")
+    assert_match 'I’m one with the Force. The Force is with me.', output
+  end
 end
