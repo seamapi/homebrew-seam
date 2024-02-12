@@ -1,5 +1,4 @@
 require "language/node"
-require "json"
 
 class Seam < Formula
   desc "This utility lets you control Seam resources"
